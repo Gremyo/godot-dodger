@@ -9,7 +9,7 @@ func _ready():
 	$AnimatedSprite.animation = "walk"
 	$AnimatedSprite.playing = true
 	linear_velocity = velocity.rotated(rotation)
-	$BlasterEnemyTimer.start()
+	$CarrierEnemyTimer.start()
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
