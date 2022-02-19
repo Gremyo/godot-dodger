@@ -20,18 +20,35 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 52.0
-height = 24.0
+radius = 38.0
+height = 0.0
 
 [node name="Player" type="Area2D"]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "up"
+flip_v = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -12 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flip_V" type="Position2D" parent="."]
+position = Vector2( 0, 12 )
+
+[node name="Normal_V" type="Position2D" parent="."]
+position = Vector2( 0, -12 )
 
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]

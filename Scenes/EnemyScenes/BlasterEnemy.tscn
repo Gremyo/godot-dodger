@@ -25,17 +25,32 @@ script = ExtResource( 2 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 3 )
 animation = "walk"
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [node name="BlasterEnemyTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.7
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 16, 0 )
 rotation = 1.5708
 shape = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BlasterLine" type="Line2D" parent="."]
+points = PoolVector2Array( 49, 0 )
+default_color = Color( 0.4, 0.501961, 1, 0.392157 )
+
+[node name="BlasterLineTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
 
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="timeout" from="BlasterEnemyTimer" to="." method="_on_BlasterEnemyTimer_timeout"]
+[connection signal="timeout" from="BlasterLineTimer" to="." method="_on_BlasterLineTimer_timeout"]

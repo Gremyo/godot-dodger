@@ -24,6 +24,10 @@ func _process(delta):
 			$AnimatedSprite.flip_h = velocity.x < 0
 		if velocity.y != 0:
 			$AnimatedSprite.flip_v = velocity.y > 0
+			if $AnimatedSprite.flip_v:
+				$CollisionShape2D.position = $Flip_V.position
+			else:
+				$CollisionShape2D.position = $Normal_V.position
 			$AnimatedSprite.animation = "up"
 		else:
 			$AnimatedSprite.animation = "walk"
