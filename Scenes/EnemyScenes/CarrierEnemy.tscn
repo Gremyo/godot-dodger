@@ -9,7 +9,7 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 3.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -28,6 +28,7 @@ frames = SubResource( 3 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [node name="CarrierEnemyTimer" type="Timer" parent="."]
+wait_time = 0.66
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

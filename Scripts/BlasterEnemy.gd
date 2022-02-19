@@ -1,7 +1,10 @@
 extends RigidBody2D
 
+export(PackedScene) var spawned_mob_scene = preload("res://Scenes/EnemyScenes/CarrierSpawnedEnemy.tscn")
+var spawned_mob
+
 var velocity = Vector2(rand_range(150.0, 250.0), 0.0)
-var rotation_variation = rand_range(-PI / 4, PI / 4)
+var spawned_mob_velocity = Vector2(rand_range(650.0, 750.0), 0.0)
 
 func _ready():
 	$AnimatedSprite.animation = "walk"
@@ -14,5 +17,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _on_BlasterEnemyTimer_timeout():
-	#Fire large laser that hits player, laser should be as wide as enemy eye
-	pass # Replace with function body.
+	spawned_mob = spawned_mob_scene.instance()
+	spawned_mob.linear_velocity = spawned_mob_velocity.rotated(rotation)
+	add_child_below_node(get_tree().get_root(),spawned_mob)

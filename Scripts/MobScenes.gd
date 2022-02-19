@@ -19,5 +19,5 @@ func mob_instantiation(mob_index,spawn_position,spawn_rotation):
 	# so we rotate to perpendicularity and then add a variation
 	var mob = get_mob(mob_index).instance()
 	mob.position = spawn_position
-	mob.rotation = spawn_rotation + PI / 2 + mob.rotation_variation
+	mob.rotation = spawn_rotation + PI / 2
 	return mob
